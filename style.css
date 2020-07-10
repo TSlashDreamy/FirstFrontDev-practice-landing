@@ -8,32 +8,35 @@ html ::-webkit-scrollbar {
 }
 
 html {
+    /* *Ховаємо скроллбар по горизонталі */
     overflow-x: hidden;
 }
 
-body {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    background-image: url(src/background.jpg);
-    background-size: 100%;
-}
-
-
 header {
-    position: absolute;
     top: 0;
     min-height: 75px;
-    padding: 0px 50px;
     display: flex;
     justify-content: space-around;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.4);
+    margin: auto;
 }
 
+body {
+    /* *Використовуємо нульові значення, щоб уникнути проблем */
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background-image: url(src/background1.jpg);
+    background-size: 150%;
+}
+
+
 .logo {
-    width: 57vw;
-    filter: hue-rotate(280deg);
+    /* *Робимо логотип монохромним */
+    width: 35vw;
+    /* ! experimental */
+    filter: grayscale(100%)
 }
 
 
@@ -42,10 +45,11 @@ header {
         margin-top: 15px;
         width: 100%;
         position: relative;
+        margin: 0 auto;
     }
 }
 
-.logo>img {
+.logoimg {
     width: 100%;
     height: 100%;
     max-width: 300px;
@@ -56,19 +60,16 @@ header {
     margin-left: 20px;
 }
 
-@media (max-width: 650px) {
-    .logo>img {
-        margin: 0 auto;
-    }
-}
 
-
-nav {
+/* *Блок навігації меню */
+.menu {
     font-weight: 400;
+    margin: auto;
+    width: auto;
 }
 
 @media (max-width: 650px) {
-    nav {
+    .menu {
         margin-top: 10px;
         width: 100%;
         display: flex;
@@ -78,7 +79,7 @@ nav {
         padding: 0 50px;
     }
 
-    nav li {
+    .navli {
         padding-bottom: 5px;
         text-decoration: none;
         font-size: 10px;
@@ -86,16 +87,14 @@ nav {
     }
 }
 
-nav>ul {
-    width: 35vw;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    list-style-type: none;
+.menu-main {
+    width: 50vw;
+    /* ! experimental */
+    display: contents;
 }
 
 @media (max-width: 650px) {
-    nav>ul {
+    .menu-main {
         flex-direction: column;
     }
 }
@@ -103,42 +102,42 @@ nav>ul {
 
 
 /* * Налаштування під анімацію кнопок на меню */
-nav ul {
+.menu-main {
     list-style: none;
     text-align: center;
 }
 
-nav ul li {
+.navli {
     display: inline-block;
 }
 
-nav ul li a {
+.nava {
     display: block;
     padding: 20px;
     text-decoration: none;
-    color: rgb(167, 166, 166);
+    color: #a7a6a6;
     font-weight: 800;
     text-transform: uppercase;
     margin: auto;
 }
 
-nav ul li a,
-nav ul li a:after,
-nav ul li a:before {
+.nava,
+.nava:after,
+.nava:before {
     transition: all .5s;
 }
 
-nav ul li a:hover {
+.nava:hover {
     color: #555;
 }
 
-
-
-nav.menu ul li a {
+.nava {
     position: relative;
+    transition: all 2s;
+    font-family: 'Roboto Slab', serif;
 }
 
-nav.menu ul li a:after {
+.nava:after {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -151,23 +150,19 @@ nav.menu ul li a:after {
     height: 1px;
 }
 
-nav.menu ul li a {
-    transition: all 2s;
-}
-
-nav.menu ul li a:after {
+.nava:after {
     text-align: left;
     content: '.';
     margin: 0;
     opacity: 0;
 }
 
-nav.menu ul li a:hover {
+.nava:hover {
     color: #fff;
     z-index: 1;
 }
 
-nav.menu ul li a:hover:after {
+.nava:hover:after {
     z-index: -10;
     animation: fill 1s forwards;
     -webkit-animation: fill 1s forwards;
@@ -175,65 +170,31 @@ nav.menu ul li a:hover:after {
     opacity: 1;
 }
 
-/* Ключові кадри */
-@-webkit-keyframes fill {
-    0% {
-        width: 0%;
-        height: 1px;
-    }
 
-    50% {
-        width: 100%;
-        height: 1px;
-    }
-
-    100% {
-        width: 100%;
-        height: 100%;
-        background: #333;
-    }
-}
-
-#prebuy {
-    font-family: 'Roboto Slab', serif;
+/* *Блок передзаказу */
+.pprebuy {
     margin: auto;
-    width: 100%;
-    height: 100%;
+    height: 0px;
+    color: #ffffff;
 }
 
-#features {
-    background: rgba(0, 0, 0, 0.9);
-    color: white;
-}
-
-.char {
-    list-style-type: disc;
-}
-
-.container {
-    max-width: 1000px;
-    width: 100%;
-    margin: 0 auto;
-}
-
-.blackback {
-    background: rgb(15, 15, 15);
-}
-
-.btn {
-    padding: 0 20px;
-    height: 40px;
-    font-size: 1em;
-    font-weight: 900;
-    text-transform: uppercase;
-    border: 3px black solid;
-    border-radius: 2px;
-    background: transparent;
-    cursor: pointer;
-}
-
-.grid {
+.email {
+    border: 1px solid #363636;
+    width: 90.8%;
+    padding: 15px 30px;
+    vertical-align: bottom;
+    box-sizing: border-box;
+    opacity: 70%;
     display: flex;
+    align-items: center;
+    font-size: 1.125rem;
+    /* !experimental */
+    margin-bottom: 0.5rem;
+    align-items: center;
+    margin: 10px;
+    background: black;
+    color: white;
+    font-family: 'Roboto Slab', serif;
 }
 
 #prebuy {
@@ -243,32 +204,15 @@ nav.menu ul li a:hover:after {
     justify-content: center;
     text-align: center;
     height: 270px;
-    margin-top: 50px;
+    font-family: 'Roboto Slab', serif;
+    margin: auto;
+    margin-top: 200px;
 }
 
-#prebuy>h2 {
-    margin-bottom: 20px;
-    word-wrap: break-word;
-}
-
-#prebuy input[type="email"] {
+.email {
     max-width: 275px;
     width: 100%;
     padding: 5px;
-}
-
-#prebuy input[type="submit"] {
-    max-width: 150px;
-    width: 100%;
-    height: 30px;
-    margin: 15px 0;
-    border: 0;
-    background-color: rgba(224, 224, 224, 0.6);
-}
-
-#prebuy input[type="submit"]:hover {
-    background-color: rgb(224, 224, 224);
-    transition: background-color 1s;
 }
 
 @media (max-width: 650px) {
@@ -277,37 +221,74 @@ nav.menu ul li a:hover:after {
     }
 }
 
-#features {
-    margin: auto;
+.submit {
+    padding: 0 20px;
+    height: 40px;
+    font-size: 1em;
+    /* !experimental */
+    font-weight: 900;
+    text-transform: uppercase;
+    border: 3px #0f0f0f solid;
+    border-radius: 2px;
+    background: transparent;
+    cursor: pointer;
+    max-width: 150px;
+    width: 100%;
+    height: 30px;
+    margin: 15px 0;
+    border: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #ffffff;
 }
 
-#features .icon {
+.submit:hover {
+    background-color: #ffffff;
+    color: #0f0f0f;
+    transition: background-color 1s;
+}
+
+.grid {
+    display: flex;
+}
+
+
+/* *Блок з особливостями */
+#features {
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    margin-top: 500px;
+
+}
+
+.icon {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 125px;
     width: 20vw;
+    /* !experimental */
     color: #7E7E7E
 }
 
 @media (max-width: 550px) {
-    #features .icon {
+    .icon {
         display: none;
     }
 }
 
-#features .desc {
+.desc {
     display: flex;
     flex-direction: column;
     justify-content: center;
     height: 125px;
     width: 80vw;
+    /* !experimental */
     padding: 5px;
     font-family: 'Roboto Slab', serif;
 }
 
 @media (max-width: 550px) {
-    #features .desc {
+    .desc {
         width: 100%;
         text-align: center;
         padding: 0;
@@ -321,6 +302,60 @@ nav.menu ul li a:hover:after {
     }
 }
 
+.blackback {
+    background: #0f0f0f;
+}
+
+
+.char {
+    display: table-cell;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: calc(100% / 3);
+    margin: auto;
+    border: 7px solid #ffffff;
+    border-radius: 3px;
+    list-style-type: none;
+    padding: 70px 150px;
+    font-family: 'Roboto Slab', serif;
+    color: #ffffff;
+}
+
+.charli {
+    padding: 5px 0;
+    margin: 15px 0;
+    list-style-type: none;
+}
+
+/* *Блок з кольорами */
+.colorsimg {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: calc(100% / 3);
+    /* !experimental  */
+    margin: 10px;
+    border: 1px solid #000000;
+    border-radius: 3px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#colors {
+    text-align: center;
+    font-family: 'Roboto Slab', serif;
+}
+
+.speciftext {
+    color: white;
+    font-family: 'Roboto Slab', serif;
+}
+
+
+/* *Блок з ціною*/
 #sell {
     margin-top: 60px;
     display: flex;
@@ -339,41 +374,57 @@ nav.menu ul li a:hover:after {
     border: 3px solid #ddd;
     border-radius: 3px;
     list-style-type: none;
-    color: white;
+    color: #ffffff;
 }
 
-.product>.level {
+.level {
     background-color: #ddd;
-    color: black;
+    color: #0f0f0f;
     padding: 15px 0;
     width: 100%;
     text-transform: uppercase;
     font-weight: 700;
 }
 
-.product>h2 {
+.productitem {
     margin-top: 15px;
 }
 
-.product>ol {
+.producttable {
     margin: 15px 0;
     list-style-type: none;
     text-align: left;
 }
 
-.product>ol>li {
+.subproduct {
     padding: 5px 0;
+    font-family: 'Roboto Slab', serif;
+    font-size: 12px;
 }
 
-.product>button {
+.btn {
+    padding: 0 20px;
+    height: 40px;
+    font-size: 1em;
+    /* !experimental */
+    font-weight: 900;
+    text-transform: uppercase;
+    border: 3px #0f0f0f solid;
+    border-radius: 2px;
+    background: transparent;
+    cursor: pointer;
+}
+
+.btn {
     border: 0;
     margin: 15px 0;
-    background-color: rgb(224, 224, 224);
+    background-color: #e0e0e0;
     font-weight: 400;
+    font-family: 'Roboto Slab', serif;
 }
 
-.product>button:hover {
-    background-color: rgb(224, 224, 224);
+.btn:hover {
+    background-color: #e0e0e0;
     transition: background-color 1s;
 }
 
@@ -390,85 +441,30 @@ nav.menu ul li a:hover:after {
     }
 }
 
-.pprebuy {
-    margin: auto;
-    height: 0px;
-    color: white;
-}
-
-#email {
-    border: 1px solid #dadada;
-    width: 90.8%;
-    padding: 15px 30px;
-    vertical-align: bottom;
-    box-sizing: border-box;
-    opacity: 70%;
-    display: flex;
-    align-items: center;
-    font-size: 1.125rem;
-    margin-bottom: 0.5rem;
-    align-items: center;
-    margin: 10px;
-    font-family: 'Roboto Slab', serif;
-}
-
-.menu {
-    margin: auto;
-    width: auto;
-}
-
-.char {
-    display: table-cell;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    width: calc(100% / 3);
-    margin: auto;
-    border: 7px solid rgb(255, 255, 255);
-    border-radius: 3px;
-    list-style-type: none;
-    padding: 70px 150px;
-    font-family: 'Roboto Slab', serif;
-    color: white;
+.container {
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
 }
 
 
+/* * Ключові кадри */
+@keyframes fill {
+    0% {
+        width: 0%;
+        height: 1px;
+    }
 
-.char>ul>li {
-    padding: 5px 0;
-    margin: 15px 0;
-    list-style-type: none;
-}
+    50% {
+        width: 100%;
+        height: 1px;
+    }
 
-
-
-.colorsimg {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    width: calc(100% / 3);
-    margin: 10px;
-    border: 1px solid #000;
-    border-radius: 3px;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-#colors {
-    text-align: center;
-    font-family: 'Roboto Slab', serif;
-}
-
-ul {
-    list-style-type: none;
-
-}
-
-h2,
-p {
-    color: white;
+    100% {
+        width: 100%;
+        height: 100%;
+        background: #333;
+    }
 }
 
 .gradient {
