@@ -160,9 +160,7 @@ main {
 }
 
 .email {
-  display: flex;
   box-sizing: border-box;
-  align-items: center;
   background: black;
   color: white;
   border: 1px solid #363636;
@@ -175,21 +173,17 @@ main {
 }
 
 .prebuy {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   text-align: center;
-  padding: 50px 0;
+  padding: 200px 0px 50px 0px;
   font-family: "Roboto Slab", serif;
   margin: auto;
-  padding-top: 200px;
 }
 
 .background-container {
   background-image: url(src/background1.jpg);
   background-size: cover;
   background-attachment: fixed;
+  margin-top: 400px;
 }
 
 @media (max-width: 650px) {
@@ -199,6 +193,7 @@ main {
 }
 
 .submit {
+  display: grid;
   padding: 10px 20px;
   font-size: 16px;
   font-weight: 900;
@@ -206,7 +201,7 @@ main {
   border-radius: 2px;
   cursor: pointer;
   max-width: 150px;
-  margin: 15px 0;
+  margin: 10px auto;
   border: 0;
   background-color: rgba(0, 0, 0, 0.6);
   color: #ffffff;
@@ -242,7 +237,6 @@ main {
   color: white;
   padding: 0 60px;
   margin: auto;
-  margin-top: 400px;
 }
 
 .icon {
@@ -309,7 +303,6 @@ main {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  /* !experimental  */
   margin: 10px;
   border: 1px solid #000000;
   border-radius: 3px;
@@ -330,21 +323,19 @@ main {
 
 /* *Блок з ціною*/
 .sell {
-  margin-top: 60px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+  margin: 10px 10px;
+  display: grid;
+  grid-template-columns: 300px 300px 300px;
+  grid-gap: 20px;
 }
 
 .product {
-  display: grid;
-  align-items: center;
   text-align: center;
-  margin: 10px 15px;
   border: 3px solid #ddd;
   border-radius: 3px;
   color: #ffffff;
   padding: 10px 10px;
+  width: fit-content;
 }
 
 .level {
@@ -361,7 +352,6 @@ main {
 }
 
 .product-table {
-  margin: 15px 0;
   list-style-type: none;
   text-align: left;
 }
