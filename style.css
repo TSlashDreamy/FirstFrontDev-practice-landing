@@ -1,5 +1,13 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto+Slab|PT+Sans+Caption&subset=latin,cyrillic");
 
+/* 
+ * DONE: logo size
+ * DONE: menu fixes
+ * DONE: delete min width, height
+ * DONE: center texts
+ * DONE: classes name
+ * DONE: buy menu fixes
+*/
 html ::-webkit-scrollbar {
   /* *Ховаємо скроллбар   */
   width: 0px;
@@ -18,7 +26,6 @@ header {
   justify-content: space-around;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.4);
-  margin: auto;
 }
 
 body {
@@ -36,6 +43,9 @@ main {
 .logo {
   /* *Робимо логотип монохромним */
   filter: grayscale(100%);
+  display: grid;
+  grid-template-columns: 80%;
+  grid-gap: 1%;
 }
 
 @media (max-width: 650px) {
@@ -54,7 +64,6 @@ main {
 /* *Блок навігації меню */
 .menu {
   font-weight: 400;
-  margin: auto;
 }
 
 @media (max-width: 650px) {
@@ -94,7 +103,7 @@ main {
   display: inline-block;
 }
 
-.nava {
+.nav-link {
   display: block;
   padding: 20px;
   text-decoration: none;
@@ -104,23 +113,23 @@ main {
   margin: auto;
 }
 
-.nava,
-.nava:after,
-.nava:before {
+.nav-link,
+.nav-link:after,
+.nav-link:before {
   transition: all 0.5s;
 }
 
-.nava:hover {
+.nav-link:hover {
   color: #555;
 }
 
-.nava {
+.nav-link {
   position: relative;
   transition: all 2s;
   font-family: "Roboto Slab", serif;
 }
 
-.nava:after {
+.nav-link:after {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -133,19 +142,19 @@ main {
   height: 1px;
 }
 
-.nava:after {
+.nav-link:after {
   text-align: left;
   content: ".";
   margin: 0;
   opacity: 0;
 }
 
-.nava:hover {
+.nav-link:hover {
   color: #fff;
   z-index: 1;
 }
 
-.nava:hover:after {
+.nav-link:hover:after {
   z-index: -10;
   animation: fill 1s forwards;
   -webkit-animation: fill 1s forwards;
@@ -183,7 +192,13 @@ main {
   background-image: url(src/background1.jpg);
   background-size: cover;
   background-attachment: fixed;
+  margin: auto;
   margin-top: 400px;
+}
+
+.sell-container {
+  max-width: 1000px;
+  margin: 0px auto 10px auto;
 }
 
 @media (max-width: 650px) {
@@ -240,13 +255,11 @@ main {
 }
 
 .icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 64px;
-  min-height: 64px;
+  display: grid;
+  grid-template-columns: 61px;
   color: #7e7e7e;
   margin-right: 60px;
+  align-items: center;
 }
 
 @media (max-width: 550px) {
@@ -321,12 +334,15 @@ main {
   font-family: "Roboto Slab", serif;
 }
 
+.specification-description {
+  padding: 0px 0px 0px 0px;
+}
+
 /* *Блок з ціною*/
 .sell {
-  margin: 10px 10px;
   display: grid;
-  grid-template-columns: 300px 300px 300px;
-  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+  grid-gap: 1%;
 }
 
 .product {
@@ -334,21 +350,19 @@ main {
   border: 3px solid #ddd;
   border-radius: 3px;
   color: #ffffff;
-  padding: 10px 10px;
-  width: fit-content;
+  padding: 4% 4%;
+  width: -moz-fit-content; /* * Firefox */
+  width: -webkit-fit-content; /* * Chrome */
+  margin: auto;
 }
 
 .level {
   background-color: #ddd;
   color: #0f0f0f;
-  padding: 15px 0;
+  padding: 7% 0;
   text-transform: uppercase;
   font-weight: 700;
   border-radius: 3px;
-}
-
-.product-item {
-  margin-top: 15px;
 }
 
 .product-table {
